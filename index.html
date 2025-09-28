@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>targetOur</title>
-    <style>
-      body{
-        background-color: black;
-        color: white;
-        padding: 10px;
-        font-family: monospace;
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+</head>
+<body style="background:black; color:white;">
+
+  <!-- Kartlar -->
+  <button id="kart1" onclick="kartSec('kart1')" style="background:red; color:white;">A</button>
+  <button id="kart2" onclick="kartSec('kart2')" style="background:blue; color:white;">B</button>
+  <button id="kart3" onclick="kartSec('kart3')" style="background:green; color:white;">C</button>
+
+  <br><br>
+
+  <!-- Ekleyiciler -->
+  <button id="ekleyici1" onclick="ekle('ekleyici1')">+</button>
+  <button id="ekleyici2" onclick="ekle('ekleyici2')">+</button>
+  <button id="ekleyici3" onclick="ekle('ekleyici3')">+</button>
+
+  <script>
+    let secilenKart = null;
+
+    function kartSec(kartId) {
+      secilenKart = document.getElementById(kartId);
+    }
+
+    function ekle(ekleyiciId) {
+      if (secilenKart) {
+        const hedefButon = document.getElementById(ekleyiciId);
+
+        // ekleyiciye kartın yazısını ve rengini aktar
+        hedefButon.textContent = secilenKart.textContent;
+        hedefButon.style.backgroundColor = secilenKart.style.backgroundColor;
+
+        // kartı gizle
+        secilenKart.style.visibility = "hidden";
+
+        // seçimi sıfırla
+        secilenKart = null;
+      } else {
+        alert("Önce bir kart seç!");
       }
-      p{
-        animation: karisik 10s infinite alternate;
-        font-size: 50px;
-      } @keyframes karisik{
-        0%{color: white; text-align: left;}
-        10%{color: yellow;}
-        40%{color: black;}
-      50%{color: red; text-align: center;}
-        85%{color: brown; text-align: left;}
-        100%{color: blue; text-align: right;}
-      }
-    </style>
-  </head>
-  <body>
-    <p>Merhaba! Bu benim ilk animasyonum</p>
-  </body>
+    }
+  </script>
+</body>
 </html>
