@@ -14,16 +14,18 @@
       color: rgb(255, 50, 50);
       font-family: sans-serif;
       margin: 0;
+      display: inline-block;
     }
-    #gir{
+    #gir, #at{
       border: 1px solid rgb(255, 50, 50);
-      border-radius: 8px;
-      width: 25vw;
-      margin-left: 37.5vw;
+      border-radius: 4px;
+      width: 25%;
+      margin-left: 37.5%;
       heigth: 30px;
       padding: 2px 10px;
       background-color: black;
-      margin-top: 1vw;
+      margin-top: 1%;
+      display: block;
     }
     #gir::placeholder{
       color: rgb(255, 50, 50);
@@ -33,16 +35,20 @@
 </head>
   <body>
     <input id='gir' placeholder='Kod giriniz'>
+    <button id='at'>Gönder</button>
     <script>
       const gir = document.getElementById("gir");
+      const at = document.getElementById("at");
+      const socket = io();
       gir.addEventListener("focus",function(){
         gir.style.backgroundColor="yellow";
       });
       gir.addEventListener("blur",function(){
         gir.style.backgroundColor="black";
       });
-      const socket = io();
-      
+      at.addEventListener("click",function(){
+        socket.emit("kod",gir.value);
+      });
     </script>
   </body>
 </html>
