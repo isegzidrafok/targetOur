@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    body{
+      font-size: 0;
+      background-color: black;
+      padding: 1vw;
+    }
+    body *{
+      font-size: 10px;
+      color: rgb(255, 50, 50);
+      font-family: sans-serif;
+    }
+  </style>
+  <script src='socket.io/socket.min.js'></script>
 </head>
   <body>
-    <blockquote 
-  class="instagram-media"
-  data-instgrm-permalink="https://www.instagram.com/reel/DOGJ6jlDJhJ/"
-  data-instgrm-version="14"
-  style="max-width:540px; margin:auto;">
-    </blockquote>
-<script async src="https://www.instagram.com/embed.js"></script>
+    <input id='gir' placeholder='Kod giriniz'>
+    <script>
+      const gir = document.getElementById("gir").value;
+    </script>
   </body>
 </html>
