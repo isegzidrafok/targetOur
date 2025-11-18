@@ -32,7 +32,6 @@
     }
   </style>
   <script src="https://miniature-space-system-v6769w97569q2j6j-3000.app.github.dev/socket.io/socket.io.js"></script>
-  
 </head>
   <body>
     <input id='gir' placeholder='Kod giriniz'>
@@ -40,7 +39,7 @@
     <script>
       const gir = document.getElementById("gir");
       const at = document.getElementById("at");
-      const socket = io("https://miniature-space-system-v6769w97569q2j6j-3000.app.github.dev/");
+      const socket = io();
       gir.addEventListener("focus",function(){
         gir.style.backgroundColor="yellow";
       });
